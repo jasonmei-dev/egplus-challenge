@@ -13,12 +13,12 @@ const Modal = ({ showModal, closeModal, user }) => {
       { showModal && 
         <div className="Modal" ref={modalRef} onClick={handleOutsideClick}>
           <div className="modal-content">
-            <span className="closeBtn" onClick={closeModal}>&times;</span>
+            <div className="closeBtn" onClick={closeModal}>&times;</div>
             <h2>{user.name.first} {user.name.last}</h2>
             <img src={user.picture.large} alt={user.name.first} />
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-            <p>Cell: {user.cell}</p>
+            <p><span>Email: </span>{user.email}</p>
+            <p><span>Phone: </span>{user.phone}</p>
+            <p><span>Cell: </span>{user.cell}</p>
           </div>
         </div>
       }
