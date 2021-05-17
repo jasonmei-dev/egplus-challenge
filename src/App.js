@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Table from './components/Table';
 import axios from 'axios';
 
 import './App.css';
@@ -20,12 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <ul>
-        {users.map((user, index) => {
-          return <li key={index}>{user.email}</li>
-        })}
-      </ul>
+      <Table users={users} />
     </div>
   );
 }
