@@ -10,18 +10,6 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  const openModal = userData => {
-    // setShowModal(prev => !prev);
-    setShowModal(true);
-    setUser(userData);
-  }
-
-  const closeModal = () => {
-    // setShowModal(prev => !prev);
-    setShowModal(false);
-    setUser(null);
-  }
-
   useEffect(() => {
     generateUsers();
   }, []);
@@ -30,8 +18,17 @@ const App = () => {
     const res = await axios.get('https://randomuser.me/api/?results=15&exc=login,info,registered,id&noinfo');
 
     const data = res.data.results;
-    // console.log(res.data.results);
     setUsers(data);
+  }
+
+  const openModal = userData => {
+    setShowModal(true);
+    setUser(userData);
+  }
+
+  const closeModal = () => {
+    setShowModal(false);
+    setUser(null);
   }
 
   return (
