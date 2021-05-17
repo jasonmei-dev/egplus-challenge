@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Table = ({ users }) => {
+const Table = ({ users, openModal }) => {
   const formatDate = date => date.split("T")[0];
 
   return (
@@ -16,7 +16,7 @@ const Table = ({ users }) => {
       <tbody>
         {users.map((user, index) => {
           return (
-          <tr key={index}>
+          <tr key={index} onClick={() => openModal(user)}>
             <td>{user.name.first} {user.name.last}</td>
             <td>{formatDate(user.dob.date)}</td>
             <td>{user.location.state}</td>
